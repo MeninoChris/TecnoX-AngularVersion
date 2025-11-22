@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<main class="page-wrapper">
+  <section class="products-hero">
+    <div class="section-container">
+      <h1>Produtos</h1>
+      <p>Encontre as melhores peças para montar seu PC</p>
+    </div>
+  </section>
+
+  <section class="products-content">
+    <div class="section-container">
+      <aside class="filters-sidebar">
+        <div class="filter-group">
+          <h3>Categorias</h3>
+          <div class="category-list">
+            <button
+              *ngFor="let cat of categories"
+              class="category-btn"
+              [ngClass]="{ active: selectedCategory === cat.id }"
+              (click)="onCategoryChange(cat.id)"
+            >
+              {{ cat.label }}
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>Ordenar por</h3>
+          <select
+            [(ngModel)]="sortBy"
+            (ngModelChange)="onSortChange($event)"
+            class="sort-select"
+          >
+            <option value="nome">Nome (A-Z)</option>
+            <option value="preco-asc">Preço (Menor)</option>
+            <option value="preco-desc">Preço (Maior)</option>
+          </select>
+        </div>
+      </aside>
+
+      <div class="products-main">
+        <div class="products-info">
+          <p class="product-count">
+            Mostrando {{ allProducts.length }} produto{{ allProducts.length !== 1 ? 's' : '' }}
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <ng-container *ngIf="allProducts.length > 0; else noProducts">
+            <div
+              class="product-card"
+              *ngFor="let product of allProducts"
+            >
+              <a
+                class="product-card-link"
+                [routerLink]="['/produto', product.id]"
+                [state]="{ product: product }"
+                style="text-decoration: none; color: inherit"
+              >
+                <div class="product-image">
+                  <img [src]="product.imgSrc" [alt]="product.name" />
+                </div>
+                <div class="product-info">
+                  <h3>{{ product.name }}</h3>
+                  <p class="product-price">
+                    R$ {{ product.price | number: '1.2-2' }}
+                  </p>
+                </div>
+              </a>
+
+              <div class="product-info">
+                <button
+                  class="add-to-cart-btn"
+                  type="button"
+                  (click)="onAddToCart(product)"
+                >
+                  Adicionar ao Carrinho
+                </button>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-template #noProducts>
+            <div class="no-products">
+              <p>Nenhum produto encontrado nesta categoria.</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

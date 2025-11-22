@@ -1,0 +1,69 @@
+<header class="header-container">
+  <div class="header-content">
+    <a routerLink="/" style="text-decoration: none">
+      <img
+        class="logo"
+        src="/logo2.png"
+        alt="TecnoX"
+      />
+    </a>
+
+    <nav class="navigation">
+      <a routerLink="/">Home</a>
+      <a routerLink="/produtos">Produtos</a>
+      <a routerLink="/perifericos">Periféricos</a>
+      <a routerLink="/sobre">Sobre nós</a>
+    </nav>
+
+    <div class="header-icons">
+      <button
+        class="hamburger-button"
+        type="button"
+        aria-label="Abrir menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <button class="search-button" type="button" aria-label="Buscar" (click)="toggleSearch()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+
+      <a routerLink="/carrinho" aria-label="Carrinho">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+      </a>
+
+      <a routerLink="/login" aria-label="Minha conta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+ </header>
+
+<form
+  class="search-form"
+  *ngIf="searchOpen"
+  (ngSubmit)="handleSearchSubmit($event)"
+>
+  <input
+    type="text"
+    [(ngModel)]="searchValue"
+    name="search"
+    placeholder="Digite para buscar..."
+    autofocus
+  />
+  <button type="submit">Buscar</button>
+</form>

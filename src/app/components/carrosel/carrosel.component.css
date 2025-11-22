@@ -1,0 +1,126 @@
+/* CSS baseado em src/components/Carrosel/carrosel.css do React */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  width: 95%;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 230px;
+  transition: transform 0.4s ease;
+}
+
+.carousel-item:hover {
+  transform: translateY(-10px);
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(119, 119, 119, 0.3);
+  color: #000;
+  border: none;
+  border-radius: 45%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  background: #646cff;
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.left {
+  left: -20px;
+}
+
+.carousel-arrow.right {
+  right: -20px;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 70%;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow.left {
+    left: -10px;
+  }
+
+  .carousel-arrow.right {
+    right: -10px;
+  }
+}
+
+.product-image-container {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image-container img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover .product-image-container img {
+  transform: scale(1.05);
+}
+
+/* Estilos de texto dos cards, baseados na Home React */
+.product-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card-link:hover {
+  text-decoration: none;
+}
+
+.carousel-item h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.75rem 0 0.4rem 0;
+  color: #333;
+}
+
+.carousel-item .price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
+}

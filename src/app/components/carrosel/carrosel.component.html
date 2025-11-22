@@ -1,0 +1,37 @@
+<div class="carousel-wrapper">
+  <button
+    class="carousel-arrow left"
+    type="button"
+    (click)="scroll('left')"
+    aria-label="Rolar para a esquerda"
+  >
+    &#x25C0;
+  </button>
+
+  <div class="carousel-track" #scrollRef>
+    <div
+      class="carousel-item"
+      *ngFor="let product of products()"
+    >
+      <a
+        class="product-card-link"
+        [routerLink]="['/produto', product.id]"
+      >
+        <div class="product-image-container">
+          <img [src]="product.imgSrc" [alt]="product.name" />
+        </div>
+        <h3>{{ product.name }}</h3>
+        <p class="price">{{ product.price }}</p>
+      </a>
+    </div>
+  </div>
+
+  <button
+    class="carousel-arrow right"
+    type="button"
+    (click)="scroll('right')"
+    aria-label="Rolar para a direita"
+  >
+    &#x25B6;
+  </button>
+</div>

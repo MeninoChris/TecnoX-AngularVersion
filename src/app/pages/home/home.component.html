@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<main class="page-wrapper">
+  <section class="hero-section hero-main">
+    <div class="section-container">
+      <div class="hero-content">
+        <h1>PLaca de video <br /> RTX 5090</h1>
+        <a routerLink="/" class="cta-button" style="text-decoration: none">Compre agora</a>
+      </div>
+      <div class="hero-image1">
+        <img src="/images-home/Placa5090.png" alt="Placa de Video 5090" />
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section">
+    <div class="section-container">
+      <h2>Principais escolhas dos clientes</h2>
+      <p>
+        Encontre o periférico ideal para seu computador com nossa seleção dos modelos mais
+        vendidos.
+      </p>
+      <app-products-carousel [products]="products"></app-products-carousel>
+    </div>
+  </section>
+
+  <section class="hero-section hero-secondary">
+    <div class="section-container">
+      <div class="hero-image">
+        <img src="/images-home/asus.png" alt="Novidade ROG Swift OLED" />
+      </div>
+      <div class="hero-content">
+        <p class="subtitle">Novidade</p>
+        <h2>ROG Swift OLED</h2>
+        <h6>
+          Monitor gamer ROG Swift OLED de 26,5 polegadas permite escolher entre resolução 2K com
+          taxa de atualização de 540 Hz ou 720p a 720 Hz.
+        </h6>
+        <a
+          routerLink="/"
+          class="cta-button"
+          style="text-decoration: none; display: inline-block"
+        >
+          Em Breve
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<app-footer></app-footer>

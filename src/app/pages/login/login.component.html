@@ -1,0 +1,25 @@
+<div class="background">
+  <div class="login-container">
+    <img src="/logo2.png" alt="Logo" width="180" height="180" />
+    <h3>SEJA BEM-VINDO</h3>
+
+    <p>Usuário</p>
+    <input
+      type="email"
+      [(ngModel)]="usuario"
+      placeholder="Digite seu e-mail"
+    />
+
+    <p>Senha</p>
+    <input
+      type="password"
+      [(ngModel)]="senha"
+      placeholder="Digite sua senha"
+    />
+
+    <button class="Login" (click)="handleLogin()">LOGIN</button>
+    <button class="CConta">
+      <a routerLink="/cadastro">Não possui uma conta? Crie uma aqui</a>
+    </button>
+  </div>
+</div>

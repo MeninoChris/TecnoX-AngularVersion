@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<main class="product-detail-page">
+  <div class="product-detail-container">
+    <p class="status-text" *ngIf="loading">Carregando produto...</p>
+    <p class="status-text error" *ngIf="!loading && error">{{ error }}</p>
+
+    <div class="product-detail-card" *ngIf="!loading && !error && product">
+      <div class="product-detail-image">
+        <img [src]="product.imgSrc" [alt]="product.name" />
+      </div>
+
+      <div class="product-detail-info">
+        <h1>{{ product.name }}</h1>
+        <p class="product-detail-price">
+          R$ {{ product.price | number: '1.2-2' }}
+        </p>
+
+        <p
+          class="product-detail-category"
+          *ngIf="product.category"
+        >
+          Categoria: {{ product.category }}
+        </p>
+
+        <p
+          class="product-detail-description"
+          *ngIf="product.description"
+        >
+          {{ product.description }}
+        </p>
+
+        <div
+          class="product-detail-specs"
+          *ngIf="product.specs && product.specs.length > 0"
+        >
+          <h2>Especificações</h2>
+          <ul>
+            <li *ngFor="let item of product.specs">{{ item }}</li>
+          </ul>
+        </div>
+
+        <div class="product-detail-actions">
+          <button
+            class="add-to-cart-btn"
+            type="button"
+            (click)="handleAddToCart()"
+          >
+            Adicionar ao Carrinho
+          </button>
+          <button
+            class="back-btn"
+            type="button"
+            (click)="handleBack()"
+          >
+            Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

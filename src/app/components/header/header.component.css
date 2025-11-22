@@ -1,0 +1,222 @@
+/* CSS copiado do header React */
+/* ---  Estrutura Principal --- */
+.header-container {
+    position: sticky;
+    top: -200px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.3rem 1.05rem; /* header mais baixo e compacto */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: inline;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    height: 8px; /* logo menor para reduzir altura total */
+    width: auto;
+    display: block;
+}
+
+.navigation {
+    display: flex;
+    gap: 1.75rem;
+}
+
+.navigation a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.navigation a:hover {
+    color: #545454;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #646cff;
+    transition: width 0.3s ease;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+}
+
+.header-icons a {
+    color: #000000;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.header-icons a svg,
+.search-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.header-icons a:hover {
+    color: #646cff;
+    transform: scale(1.1);
+}
+
+.search-button {
+    background-color: transparent;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.search-button:hover {
+    color: #646cff;
+    transform: scale(1.1);
+}
+
+.hamburger-button {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 0.25rem;
+}
+
+/* Campo de pesquisa abaixo do header (copiado do React) */
+.search-form {
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-form input {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    color: #000000;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.search-form input:focus {
+    border-color: #646cff;
+}
+
+.search-form button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #646cff;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #535bf2;
+}
+
+/* Menu de usuário (login) abaixo do header */
+.user-menu {
+    position: absolute;
+    top: 100%;
+    right: 2rem;
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+    min-width: 220px;
+    padding: 0.75rem 0.75rem 0.5rem;
+    z-index: 101;
+}
+
+.user-menu-header {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.user-email {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #111827;
+    word-break: break-all;
+}
+
+.user-menu-item {
+    width: 100%;
+    margin-top: 0.3rem;
+    background: #f3f4f6;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    color: #b91c1c;
+    font-weight: 500;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.user-menu-item:hover {
+    background: #fee2e2;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
+    .navigation { display: none; }
+
+    .header-content {
+        padding: 1rem 1.5rem;
+    }
+
+    .hamburger-button { display: inline-flex; align-items: center; }
+}
+
