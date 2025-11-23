@@ -13,7 +13,7 @@
 .header-content {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0.3rem 1.05rem; /* header mais baixo e compacto */
+    padding: 0.35rem 1.05rem; /* header mais baixo e compacto */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +30,7 @@
 }
 
 .logo img {
-    height: 8px; /* logo menor para reduzir altura total */
+    height: 32px; /* logo menor para reduzir altura total */
     width: auto;
     display: block;
 }
@@ -43,11 +43,11 @@
 .navigation a {
     color: #000000;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.2s ease;
     position: relative;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
 }
 
 .navigation a:hover {
@@ -82,8 +82,8 @@
 
 .header-icons a svg,
 .search-button svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
 }
 
 .header-icons a:hover {
