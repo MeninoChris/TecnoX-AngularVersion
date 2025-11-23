@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 interface FormData {
   nome: string;
@@ -52,15 +53,28 @@ export class CheckoutComponent {
   etapa = 1;
   aceitouTermos = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private cartService: CartService
+  ) {}
 
   onSubmit() {
     if (this.etapa < 3) {
       this.etapa++;
     } else {
-      alert('Compra finalizada com sucesso!');
-      this.router.navigate(['/']);
+      this.finalizarCompra();
     }
+  }
+
+  finalizarCompra() {
+    // Limpar carrinho
+    this.cartService.clearCart();
+    
+    // Mostrar mensagem de sucesso
+    window.alert('Compra realizada com sucesso! Obrigado por sua compra.');
+    
+    // Redirecionar para home
+    this.router.navigate(['/']);
   }
 
   voltar() {

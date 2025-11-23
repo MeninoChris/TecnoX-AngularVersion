@@ -23,14 +23,14 @@ export class CartService {
         nome: 'Akko Tac75 HE Magnetico',
         preco: 503.99,
         quantidade: 1,
-        imagem: '/assets/images/TacHE75.png',
+        imagem: '/images-home/TacHE75.png',
       },
       {
         id: 2,
         nome: 'AJAZZ AK820 Mecanico',
         preco: 381.08,
         quantidade: 1,
-        imagem: '/assets/images/AjazzK.png',
+        imagem: '/images-home/AjazzK.png',
       }
     ];
   }
@@ -59,5 +59,9 @@ export class CartService {
 
   getTotal(): number {
     return this.getSubtotal(); // Frete grátis
+  }
+
+  clearCart(): void {
+    this.itemsSubject.next([]);
   }
 }
