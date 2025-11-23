@@ -1,2 +1,422 @@
-<h1>Checkout</h1>
-<p>Página de checkout TecnoX (versão Angular).</p>
+<div class="checkout-container">
+  <div class="checkout-header">
+    <h1>Finalizar Compra</h1>
+    <div class="etapas">
+      <div [class.ativo]="etapa >= 1">
+        <span>1</span>
+        <p>Identificação</p>
+      </div>
+      <div [class.ativo]="etapa >= 2">
+        <span>2</span>
+        <p>Pagamento</p>
+      </div>
+      <div [class.ativo]="etapa >= 3">
+        <span>3</span>
+        <p>Confirmação</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="checkout-content">
+    <form (ngSubmit)="onSubmit()" #checkoutForm="ngForm" class="checkout-form">
+      <!-- Etapa 1: Dados Pessoais -->
+      <div class="etapa-conteudo" *ngIf="etapa === 1">
+        <h2>Dados Pessoais</h2>
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input 
+            type="text" 
+            name="nome" 
+            [(ngModel)]="formData.nome" 
+            required 
+            #nome="ngModel"
+          />
+          <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="error-message">
+            Nome é obrigatório
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>E-mail</label>
+            <input 
+              type="email" 
+              name="email" 
+              [(ngModel)]="formData.email" 
+              required 
+              email
+              #email="ngModel"
+            />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+              <div *ngIf="email.errors?.['required']">E-mail é obrigatório</div>
+              <div *ngIf="email.errors?.['email']">E-mail inválido</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>CPF</label>
+            <input 
+              type="text" 
+              name="cpf" 
+              [(ngModel)]="formData.cpf" 
+              required
+              #cpf="ngModel"
+            />
+            <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="error-message">
+              CPF é obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Telefone</label>
+            <input 
+              type="tel" 
+              name="telefone" 
+              [(ngModel)]="formData.telefone" 
+              required
+              #telefone="ngModel"
+            />
+            <div *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="error-message">
+              Telefone é obrigatório
+            </div>
+          </div>
+        </div>
+
+        <h2>Endereço de Entrega</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label>CEP</label>
+            <input 
+              type="text" 
+              name="cep" 
+              [(ngModel)]="formData.cep" 
+              required
+              #cep="ngModel"
+            />
+            <div *ngIf="cep.invalid && (cep.dirty || cep.touched)" class="error-message">
+              CEP é obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Endereço</label>
+            <input 
+              type="text" 
+              name="endereco" 
+              [(ngModel)]="formData.endereco" 
+              required
+              #endereco="ngModel"
+            />
+            <div *ngIf="endereco.invalid && (endereco.dirty || endereco.touched)" class="error-message">
+              Endereço é obrigatório
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Número</label>
+            <input 
+              type="text" 
+              name="numero" 
+              [(ngModel)]="formData.numero" 
+              required
+              #numero="ngModel"
+            />
+            <div *ngIf="numero.invalid && (numero.dirty || numero.touched)" class="error-message">
+              Número é obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Complemento</label>
+            <input 
+              type="text" 
+              name="complemento" 
+              [(ngModel)]="formData.complemento" 
+            />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Bairro</label>
+            <input 
+              type="text" 
+              name="bairro" 
+              [(ngModel)]="formData.bairro" 
+              required
+              #bairro="ngModel"
+            />
+            <div *ngIf="bairro.invalid && (bairro.dirty || bairro.touched)" class="error-message">
+              Bairro é obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cidade</label>
+            <input 
+              type="text" 
+              name="cidade" 
+              [(ngModel)]="formData.cidade" 
+              required
+              #cidade="ngModel"
+            />
+            <div *ngIf="cidade.invalid && (cidade.dirty || cidade.touched)" class="error-message">
+              Cidade é obrigatória
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Estado</label>
+            <select 
+              name="estado" 
+              [(ngModel)]="formData.estado" 
+              required
+              #estado="ngModel"
+            >
+              <option value="">Selecione</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+            <div *ngIf="estado.invalid && (estado.dirty || estado.touched)" class="error-message">
+              Estado é obrigatório
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Etapa 2: Pagamento -->
+      <div class="etapa-conteudo" *ngIf="etapa === 2">
+        <h2>Pagamento</h2>
+        <div class="metodo-pagamento">
+          <label>
+            <input 
+              type="radio" 
+              name="metodoPagamento" 
+              [(ngModel)]="formData.metodoPagamento"
+              value="credito"
+              required
+            />
+            Cartão de Crédito
+          </label>
+          <label>
+            <input 
+              type="radio" 
+              name="metodoPagamento" 
+              [(ngModel)]="formData.metodoPagamento"
+              value="debito"
+            />
+            Cartão de Débito
+          </label>
+          <label>
+            <input 
+              type="radio" 
+              name="metodoPagamento" 
+              [(ngModel)]="formData.metodoPagamento"
+              value="pix"
+            />
+            PIX
+          </label>
+          <label>
+            <input 
+              type="radio" 
+              name="metodoPagamento" 
+              [(ngModel)]="formData.metodoPagamento"
+              value="boleto"
+            />
+            Boleto Bancário
+          </label>
+        </div>
+
+        <div *ngIf="['credito', 'debito'].includes(formData.metodoPagamento)" class="dados-cartao">
+          <div class="form-group">
+            <label>Número do Cartão</label>
+            <input 
+              type="text" 
+              name="numeroCartao" 
+              [(ngModel)]="formData.numeroCartao" 
+              placeholder="1234 5678 9012 3456"
+              [required]="['credito', 'debito'].includes(formData.metodoPagamento)"
+              #numeroCartao="ngModel"
+            />
+            <div *ngIf="numeroCartao.invalid && (numeroCartao.dirty || numeroCartao.touched)" class="error-message">
+              Número do cartão é obrigatório
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Nome no Cartão</label>
+            <input 
+              type="text" 
+              name="nomeCartao" 
+              [(ngModel)]="formData.nomeCartao" 
+              placeholder="Como está no cartão"
+              [required]="['credito', 'debito'].includes(formData.metodoPagamento)"
+              #nomeCartao="ngModel"
+            />
+            <div *ngIf="nomeCartao.invalid && (nomeCartao.dirty || nomeCartao.touched)" class="error-message">
+              Nome no cartão é obrigatório
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Validade</label>
+              <input 
+                type="text" 
+                name="validade" 
+                [(ngModel)]="formData.validade" 
+                placeholder="MM/AA"
+                [required]="['credito', 'debito'].includes(formData.metodoPagamento)"
+                #validade="ngModel"
+              />
+              <div *ngIf="validade.invalid && (validade.dirty || validade.touched)" class="error-message">
+                Validade é obrigatória
+              </div>
+            </div>
+            <div class="form-group">
+              <label>CVV</label>
+              <input 
+                type="text" 
+                name="cvv" 
+                [(ngModel)]="formData.cvv" 
+                placeholder="123"
+                [required]="['credito', 'debito'].includes(formData.metodoPagamento)"
+                #cvv="ngModel"
+              />
+              <div *ngIf="cvv.invalid && (cvv.dirty || cvv.touched)" class="error-message">
+                CVV é obrigatório
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="formData.metodoPagamento === 'pix'" class="pix-info">
+          <p>Após finalizar a compra, você receberá um código QR Code para efetuar o pagamento.</p>
+        </div>
+
+        <div *ngIf="formData.metodoPagamento === 'boleto'" class="boleto-info">
+          <p>O boleto será gerado após a finalização da compra e poderá ser pago em qualquer banco ou internet banking.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 3: Confirmação -->
+      <div class="etapa-conteudo confirmacao" *ngIf="etapa === 3">
+        <h2>Confirmação de Pedido</h2>
+        <div class="resumo-pedido">
+          <h3>Resumo do Pedido</h3>
+          <div class="produtos-resumo">
+            <div class="produto-resumo">
+              <span>iPhone 14 Pro Max 256GB</span>
+              <span>1x R$ 3.642,32</span>
+            </div>
+            <div class="produto-resumo">
+              <span>Console Nintendo Switch 2</span>
+              <span>1x R$ 4.184,07</span>
+            </div>
+          </div>
+          <div class="total-pedido">
+            <span>Total:</span>
+            <span>R$ 7.826,39</span>
+          </div>
+        </div>
+
+        <div class="dados-entrega">
+          <h3>Endereço de Entrega</h3>
+          <p>{{ formData.nome }}</p>
+          <p>{{ formData.endereco }}, {{ formData.numero }}</p>
+          <p *ngIf="formData.complemento">Complemento: {{ formData.complemento }}</p>
+          <p>{{ formData.bairro }} - {{ formData.cidade }}/{{ formData.estado }}</p>
+          <p>CEP: {{ formData.cep }}</p>
+        </div>
+
+        <div class="dados-pagamento">
+          <h3>Pagamento</h3>
+          <p>
+            Método: 
+            <span *ngIf="formData.metodoPagamento === 'credito'">Cartão de Crédito</span>
+            <span *ngIf="formData.metodoPagamento === 'debito'">Cartão de Débito</span>
+            <span *ngIf="formData.metodoPagamento === 'pix'">PIX</span>
+            <span *ngIf="formData.metodoPagamento === 'boleto'">Boleto Bancário</span>
+          </p>
+          
+          <div class="dados-cartao-resumo" *ngIf="['credito', 'debito'].includes(formData.metodoPagamento)">
+            <p>Cartão terminado em: {{ formData.numeroCartao.slice(-4) }}</p>
+            <p>Nome no cartão: {{ formData.nomeCartao }}</p>
+          </div>
+        </div>
+
+        <div class="termos-servico">
+          <label>
+            <input type="checkbox" required #termos="ngModel" name="termos" [(ngModel)]="aceitouTermos" />
+            Li e concordo com os Termos de Serviço e Política de Privacidade
+          </label>
+          <div *ngIf="!aceitouTermos && (checkoutForm.submitted || termos.touched)" class="error-message">
+            Você deve aceitar os termos para continuar
+          </div>
+        </div>
+      </div>
+
+      <div class="botoes-navegacao">
+        <button 
+          type="button" 
+          class="botao-voltar"
+          (click)="voltar()"
+        >
+          Voltar
+        </button>
+        <button 
+          type="submit" 
+          class="botao-continuar"
+          [disabled]="checkoutForm.invalid || (etapa === 3 && !aceitouTermos)"
+        >
+          {{ etapa === 3 ? 'Finalizar Compra' : 'Próximo' }}
+        </button>
+      </div>
+    </form>
+
+    <div class="resumo-compra">
+      <h3>Resumo da Compra</h3>
+      <div class="itens-resumo">
+        <div class="item-resumo">
+          <span>Akko Tac75 HE Magnetico</span>
+          <span>R$ 503,99</span>
+        </div>
+        <div class="item-resumo">
+          <span>AJAZZ AK820 Mecanico</span>
+          <span>R$ 381,08</span>
+        </div>
+      </div>
+      <div class="total-resumo">
+        <span>Subtotal:</span>
+        <span>R$ 7.826,39</span>
+      </div>
+      <div class="frete-resumo">
+        <span>Frete:</span>
+        <span>Grátis</span>
+      </div>
+      <div class="total-geral">
+        <span>Total:</span>
+        <span>R$ 7.826,39</span>
+      </div>
+    </div>
+  </div>
+</div>
