@@ -1,2 +1,81 @@
-<h1>Carrinho</h1>
-<p>Página de carrinho TecnoX (versão Angular).</p>
+<div class="carrinho-container">
+  <div class="carrinho-header">
+    <h1>Carrinho de Compras</h1>
+  </div>
+
+  <div class="carrinho-content">
+    <div class="lista-produtos">
+      <ng-container *ngIf="items.length > 0; else emptyCart">
+        <div *ngFor="let item of items" class="produto-item">
+          <img [src]="item.imagem" [alt]="item.nome" class="produto-imagem">
+          <div class="produto-detalhes">
+            <h3>{{ item.nome }}</h3>
+            <div class="preco-container">
+              <span class="preco-unitario">R$ {{ item.preco.toFixed(2) }} un.</span>
+              <span class="preco-total">R$ {{ getTotalPrice(item) }}</span>
+            </div>
+            <div class="produto-quantidade">
+              <button 
+                (click)="onUpdateQuantity(item.id, item.quantidade - 1)"
+                aria-label="Diminuir quantidade"
+              >
+                -
+              </button>
+              <span>{{ item.quantidade }}</span>
+              <button 
+                (click)="onUpdateQuantity(item.id, item.quantidade + 1)"
+                aria-label="Aumentar quantidade"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <button 
+            class="remover-produto" 
+            (click)="onRemoveItem(item.id)"
+            aria-label="Remover produto"
+          >
+            ×
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #emptyCart>
+        <p>Seu carrinho está vazio.</p>
+      </ng-template>
+    </div>
+
+    <div class="resumo-pedido">
+      <div class="cupom-desconto">
+        <input 
+          type="text" 
+          [(ngModel)]="cupom"
+          placeholder="ADICIONAR CÓDIGO DE DESCONTO" 
+        />
+        <button (click)="aplicarCupom()">ADD</button>
+      </div>
+
+      <div class="login-ofertas">
+        <p>REALIZE O LOGIN PARA UTILIZAR OFERTAS</p>
+        <button [routerLink]="['/login']">LOG IN</button>
+      </div>
+
+      <div class="valores-pedido">
+        <p>Valor do pedido: <span>R$ {{ subtotal.toFixed(2) }}</span></p>
+        <p>Entrega: <span>R$ {{ frete.toFixed(2) }}</span></p>
+        <p class="total-final">Total: <span>R$ {{ total.toFixed(2) }}</span></p>
+      </div>
+
+      <button 
+        class="continuar-pagamento"
+        (click)="continuarParaPagamento()"
+        [disabled]="items.length === 0">
+        CONTINUAR PARA O PAGAMENTO
+      </button>
+    </div>
+  </div>
+
+  <div class="produtos-recomendados">
+    <h2>Recomendados para você</h2>
+    <p>Produtos recomendados aparecerão aqui</p>
+  </div>
+</div>

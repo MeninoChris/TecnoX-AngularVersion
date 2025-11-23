@@ -1,0 +1,387 @@
+/* Main container */
+.carrinho-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+.carrinho-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.carrinho-header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Content layout */
+.carrinho-content {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Product list */
+.lista-produtos {
+  flex: 2;
+}
+
+/* Product item */
+.produto-item {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.produto-imagem {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.produto-detalhes {
+  flex: 1;
+}
+
+.produto-detalhes h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Price container */
+.preco-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.preco-unitario {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.preco-total {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* Quantity controls */
+.produto-quantidade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.produto-quantidade button {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.produto-quantidade button:hover {
+  background: #e0e0e0;
+}
+
+.produto-quantidade span {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Remove button */
+.remover-produto {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.remover-produto:hover {
+  background: #ffebee;
+  color: #f44336;
+}
+
+/* Order summary */
+.resumo-pedido {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Coupon section */
+.cupom-desconto {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cupom-desconto input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.cupom-desconto button {
+  padding: 0 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.cupom-desconto button:hover {
+  background: #555;
+}
+
+/* Login offers */
+.login-ofertas {
+  background: #fff8e1;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.login-ofertas p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+  color: #e65100;
+  font-weight: 500;
+}
+
+.login-ofertas button {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.login-ofertas button:hover {
+  background: #f57c00;
+}
+
+/* Order values */
+.valores-pedido {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.valores-pedido p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.valores-pedido .total-final {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px !important;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  color: #333;
+}
+
+/* Checkout button */
+.continuar-pagamento {
+  width: 100%;
+  padding: 15px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.continuar-pagamento:hover:not(:disabled) {
+  background: #43a047;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.continuar-pagamento:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Recommended products */
+.produtos-recomendados {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.produtos-recomendados h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+/* Empty cart */
+.empty-cart-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 1.1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px dashed #ddd;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .carrinho-content {
+    flex-direction: column;
+  }
+  
+  .resumo-pedido {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .produto-item {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .produto-imagem {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin: 0 auto 15px;
+  }
+  
+  .produto-detalhes {
+    width: 100%;
+  }
+  
+  .produto-quantidade {
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  .preco-container {
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+  }
+  
+  .cupom-desconto {
+    flex-direction: column;
+  }
+  
+  .cupom-desconto button {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.produto-item {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Hover effects */
+.produto-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+/* Focus states */
+button:focus, input:focus {
+  outline: 2px solid #4caf50;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.5);
+  z-index: 1;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
