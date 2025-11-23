@@ -15,16 +15,21 @@
   align-items: center;
   min-height: 100vh;
   background-color: #C1DCDC;
+  position: fixed; /* fixa o background para cobrir toda a tela */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Container principal */
 .login-container {
   background-color: white;
-  padding: 2.5rem;
+  padding: 3rem; /* padding menor */
   border-radius: 12px;
   box-shadow: var(--box-shadow);
   width: 100%;
-  max-width: 250px;
+  max-width: 360px; /* largura menor */
   margin: 8rem auto;
   text-align: center;
   font-family: 'poppins', sans-serif;

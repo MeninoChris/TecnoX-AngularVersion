@@ -1,3 +1,4 @@
+
 /* CSS copiado do header React */
 /* ---  Estrutura Principal --- */
 .header-container {
@@ -13,7 +14,7 @@
 .header-content {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0.35rem 1.05rem; /* header mais baixo e compacto */
+    padding: 0.15rem 1.05rem; /* apenas padding vertical reduzido */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,22 +30,22 @@
     transform: scale(1.05);
 }
 
-.logo img {
-    height: 32px; /* logo menor para reduzir altura total */
+.header-container .logo img {
+    height: 16px !important; /* seletor mais específico */
     width: auto;
     display: block;
 }
 
 .navigation {
     display: flex;
-    gap: 1.75rem;
+    gap: 1.75rem; /* espaçamento normal */
 }
 
 .navigation a {
     color: #000000;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1.1rem; /* fonte maior */
+    font-weight: 600; /* mais negrito */
     transition: color 0.2s ease;
     position: relative;
     padding-bottom: 2px;
@@ -71,7 +72,7 @@
 
 .header-icons {
     display: flex;
-    gap: 1.1rem;
+    gap: 1.3rem; /* mais espaçamento para ícones maiores */
     align-items: center;
 }
 
@@ -82,8 +83,8 @@
 
 .header-icons a svg,
 .search-button svg {
-    width: 18px;
-    height: 18px;
+    width: 22px; /* ícones maiores */
+    height: 22px;
 }
 
 .header-icons a:hover {
