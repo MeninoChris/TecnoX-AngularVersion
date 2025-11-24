@@ -21,10 +21,16 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/produto-detalhe/produto-detalhe.component').then((m) => m.ProdutoDetalheComponent),
   },
+  // Rota para a área administrativa com layout próprio
+  {
+    path: 'admin',
+    loadChildren: () => import('./pages/admin/admin.routes').then(m => m.ADMIN_ROUTES)
+  },
+  // Rota de redirecionamento para compatibilidade com a rota antiga
   {
     path: 'admin/produtos',
-    loadComponent: () =>
-      import('./pages/admin-produtos/admin-produtos.component').then((m) => m.AdminProdutosComponent),
+    redirectTo: 'admin/produtos',
+    pathMatch: 'full'
   },
   {
     path: 'cadastro',

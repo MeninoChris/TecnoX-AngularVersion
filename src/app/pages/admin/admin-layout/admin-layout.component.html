@@ -1,0 +1,66 @@
+<div class="admin-container">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <h2>Painel Admin</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin/produtos" routerLinkActive="active">
+            <i class="fas fa-box"></i> Produtos
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-users"></i> Usuários
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-shopping-cart"></i> Pedidos
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <i class="fas fa-chart-bar"></i> Relatórios
+          </a>
+        </li>
+        <li class="sidebar-footer">
+          <a href="/" class="text-danger">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <header class="admin-toolbar">
+      <div class="toolbar-left">
+        <button class="sidebar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1>Administração</h1>
+      </div>
+      <div class="toolbar-right">
+        <div class="user-menu">
+          <span class="user-avatar">
+            <i class="fas fa-user-circle"></i>
+          </span>
+          <span class="user-name">Admin</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
