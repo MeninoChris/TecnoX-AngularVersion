@@ -27,6 +27,7 @@
 }
 
 .login-container h3 {
+    white-space: nowrap;
     font-size: 1.75rem;
     margin-bottom: 30px;
     color:#0077cc;
